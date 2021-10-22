@@ -71,7 +71,7 @@ public class MainFunctions {
     }
 
     public static boolean xor(boolean a, boolean b) {
-        return (a && !b) || (b && !a);
+        return a ^ b;
     }
 
     public static int sum(int[] x) {
