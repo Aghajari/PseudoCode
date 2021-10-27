@@ -106,11 +106,17 @@ public class Variables {
             }
         }
 
+        String realName = getRealNameWithOutArray(var);
         if (!newType.contains("[]")) {
+            if (vars.containsKey(realName.toLowerCase().trim())) {
+                String t = vars.get(realName.toLowerCase().trim());
+                if (!t.contains("[]"))
+                    newType = t;
+            }
+
             equals = "(" + newType + ") (" + equals.trim() + ")";
         }
 
-        String realName = getRealNameWithOutArray(var);
         if (!importable || vars.containsKey(realName.toLowerCase().trim())) {
             return new Pair<>(var + " = " + equals + ";", new Pair<>(newType, count));
         } else {
