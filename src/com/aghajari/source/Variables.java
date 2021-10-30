@@ -57,6 +57,10 @@ public class Variables {
             String[] a = var.split(":");
             newType = getNewType(a[0].trim());
             var = a[1].trim();
+        } else {
+            if (vars.containsKey(equals.toLowerCase().trim())) {
+                newType = vars.get(equals.toLowerCase().trim());
+            }
         }
 
         newType = Reformater.safeReplace(newType, "string", "String");
@@ -69,6 +73,8 @@ public class Variables {
         newType = Reformater.safeReplace(newType, "double", "double");
         newType = Reformater.safeReplace(newType, "float", "float");
         newType = Reformater.safeReplace(newType, "char", "char");
+        newType = Reformater.safeReplace(newType, "object", "Object");
+        newType = Reformater.safeReplace(newType, "?", "Object");
         newType = Reformater.safeReplace(newType, "BigDecimal", "BigDecimal");
         newType = Reformater.safeReplace(newType, "BigInteger", "BigInteger");
         if (newType.trim().equalsIgnoreCase("bool"))
@@ -82,7 +88,9 @@ public class Variables {
         } else if (equals.trim().startsWith("[") && equals.trim().endsWith("]")) {
             try {
                 String e2 = equals.trim().substring(1, equals.trim().length() - 1);
-                if (checkArrayAsCount) {
+                if (e2.startsWith(":") || checkArrayAsCount) {
+                    if (e2.startsWith(":"))
+                        e2 = e2.substring(1);
                     count = e2;
                     equals = "new " + newType + "[" + count + "]";
                 } else {
@@ -107,6 +115,7 @@ public class Variables {
         }
 
         String realName = getRealNameWithOutArray(var);
+
         if (!newType.contains("[]")) {
             if (vars.containsKey(realName.toLowerCase().trim())) {
                 String t = vars.get(realName.toLowerCase().trim());

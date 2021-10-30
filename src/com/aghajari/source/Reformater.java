@@ -87,8 +87,8 @@ public class Reformater {
         line = safeReplace(line, "!==", "!=");
         line = safeReplace(line, ">==", ">=");
         line = safeReplace(line, "<==", "<=");
-        line = safeReplace(line, "or", "||");
-        line = safeReplace(line, "and", "&&");
+        line = safeReplace(line, " or ", "||");
+        line = safeReplace(line, " and ", "&&");
         return line.trim();
     }
 }

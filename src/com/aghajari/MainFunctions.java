@@ -16,7 +16,9 @@
  */
 package com.aghajari;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * All functions that our code can use,
@@ -35,14 +37,14 @@ public class MainFunctions {
         return a == 0 ? b : gcd(b % a, a);
     }
 
-    public static int gcd(int[] x) {
+    public static int gcd(int... x) {
         int result = 0;
         for (int value : x)
             result = gcd(value, result);
         return result;
     }
 
-    public static int[] simplify(int[] x) {
+    public static int[] simplify(int... x) {
         int sign = 0;
         for (int value : x) {
             if (value > 0) {
@@ -62,8 +64,22 @@ public class MainFunctions {
         return y;
     }
 
+    public static int length(Object o) {
+        return len(o);
+    }
+
+    public static int size(Object o) {
+        return len(o);
+    }
+
+    public static int len(Object o) {
+        if (o instanceof List)
+            return ((List<?>) o).size();
+        return Array.getLength(o);
+    }
+
     public static int sign(int n) {
-        return Integer.compare(n, 0);
+        return Integer.signum(n);
     }
 
     public static boolean not(boolean a) {
@@ -74,7 +90,7 @@ public class MainFunctions {
         return a ^ b;
     }
 
-    public static int sum(int[] x) {
+    public static int sum(int... x) {
         int sum = 0;
         for (int a : x)
             sum += a;

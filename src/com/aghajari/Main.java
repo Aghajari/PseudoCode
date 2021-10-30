@@ -24,7 +24,7 @@ import com.aghajari.compiler.DynamicCompiler;
 import java.util.*;
 
 public class Main {
-    
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         try {
@@ -49,16 +49,6 @@ public class Main {
         System.out.println("\u001B[33m" + "----------------");
         System.out.println("Wait a moment...");
         System.out.println("----------------" + "\u001B[0m");
-
-        /*
-               print "Enter the number of integers"
-               read n
-               print "Enter " n " integers"
-               read x[5]
-               print "Average = " & sum(x) / x.length
-               read x[5]
-               print "Average = " & sum(x) / x.length
-         */
 
         compile(Parser.parse(lines), scanner);
     }
