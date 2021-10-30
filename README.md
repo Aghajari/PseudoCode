@@ -156,10 +156,6 @@ print "GCD = " GCD(x)
 ## Author
 Amir Hossein Aghajari
 
-### SUPPORT ❤️
-Support this project by joining [**stargazers**](https://github.com/aghajari/PseudoCode/stargazers) for this repository ⭐️
-
-
 License
 =======
 
