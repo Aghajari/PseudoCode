@@ -74,7 +74,6 @@ public class Variables {
         newType = Reformater.safeReplace(newType, "float", "float");
         newType = Reformater.safeReplace(newType, "char", "char");
         newType = Reformater.safeReplace(newType, "object", "Object");
-        newType = Reformater.safeReplace(newType, "?", "Object");
         newType = Reformater.safeReplace(newType, "BigDecimal", "BigDecimal");
         newType = Reformater.safeReplace(newType, "BigInteger", "BigInteger");
         if (newType.trim().equalsIgnoreCase("bool"))
