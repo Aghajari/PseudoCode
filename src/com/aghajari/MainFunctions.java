@@ -19,6 +19,7 @@ package com.aghajari;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 /**
  * All functions that our code can use,
@@ -32,6 +33,10 @@ import java.util.List;
  * }</pre>
  */
 public class MainFunctions {
+
+    public static int rnd(int a, int b){
+        return new Random().nextInt(b - a + 1) + a;
+    }
 
     public static int gcd(int a, int b) {
         return a == 0 ? b : gcd(b % a, a);
